@@ -1,0 +1,40 @@
+﻿@page
+@model EditedBookList.Pages.BooksView.IndexModel
+@{
+   
+}
+<div class="container">
+    <div class="jumbotron">
+        <h3 class="display-3 text-secondary">Avaliable Books</h3>
+    </div>
+
+    <div class="row">
+        <div class="row m-1 border">
+            <a class="btn btn-success" asp-page="Create">Create New Book</a>
+        </div>
+        <table class="table-bordered m-1 table">
+            <thead class="text-secondary">
+                <tr>
+                    <th >Book Name</th>
+                    <th >Book Author </th>
+                    <th>Edite</th>
+                </tr>
+            </thead>
+            <tbody class="text-info m-1">
+                @foreach (var book in Model.Books)
+                {
+                    <tr>
+                        <td>@book.Name</td>
+                        <td>@book.Author</td>
+                        <td>
+                            <a asp-page-handler="Delete"  asp-route-id="@book.Id" onclick="return confirm('sure Delete book?');"  class="btn btn-danger" >Delete</a>
+                            <a class="btn btn-primary text-white" asp-route-id="@book.Id" asp-area="" asp-page="Edite" >Edite</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table> 
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+﻿@page
+@model EditedBookList.Pages.BooksView.EditeModel
+@{
+}
+<div class="Container">
+    <div>
+        
+    </div>
+    <form method="post">
+        <input type="hidden" asp-for="Book.Id" />
+        <div class="form-group">
+            <label asp-for="Book.Name">Book Name</label>
+            <input type="text" value="@Model.Book.Name" asp-for="Book.Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Book.Author">Book Author</label>
+            <input type="text" value="@Model.Book.Author" asp-for="Book.Author" class="form-control"/>
+        </div>
+        <div class="form-groub"><input type="submit" value="Submit Book" /></div>
+    </form>
+</div>
